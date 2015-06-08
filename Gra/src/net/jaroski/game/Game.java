@@ -26,7 +26,6 @@ import net.jaroski.game.level.TileCoordinate;
  * @author Jaroski
  *
  */
-
 public class Game extends Canvas implements Runnable {
 	
 	private static final long serialVersionUID = 1L;

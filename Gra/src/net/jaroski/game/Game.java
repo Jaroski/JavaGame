@@ -19,6 +19,14 @@ import net.jaroski.game.input.Mouse;
 import net.jaroski.game.level.Level;
 import net.jaroski.game.level.TileCoordinate;
 
+/**
+ * Klasa Game jest g³ówn¹ klas¹ wykonawcz¹ projektu.
+ * Zawiera funkcjê main.
+ * 
+ * @author Jaroski
+ *
+ */
+
 public class Game extends Canvas implements Runnable {
 	
 	private static final long serialVersionUID = 1L;
@@ -40,6 +48,9 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
 	
+	/**
+	 * Konstruktor domyœlny dla klasy Game.
+	 */
 	public Game() {
 		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);
@@ -62,10 +73,17 @@ public class Game extends Canvas implements Runnable {
 		addMouseMotionListener(mouse);
 	}
 	
+	/**
+	 * Metoda pobiera szerokoœæ okna programu.
+	 * @return zwraca szerokoœæ okna * skala
+	 */
 	public static int getWindowWidth() {
 		return width*scale;
 	}
-	
+	/**
+	 * Metoda pobiera wysokoœæ okna programu.
+	 * @return zwraca wysokoœæ okna * skala
+	 */
 	public static int getWindowHeight() {
 		return height*scale;
 	}
@@ -88,7 +106,10 @@ public class Game extends Canvas implements Runnable {
 		}
 	}
 
-	
+	/**
+	 * W¹tek wykonawczy programu, ograniczaj¹cy liczbê FPS.
+	 * Wywo³uje Update() oraz Render().
+	 */
 	public void run() {
 		//new Game();
 		long lastTime = System.nanoTime();
@@ -124,14 +145,18 @@ public class Game extends Canvas implements Runnable {
 		stop();
 		
 	}
-	//int x=0, y=0;
-	//logic
+	
+	/**
+	 * Metoda aktualizuj¹ca logikê gry.
+	 */
 	public void update() {
 		key.update();
 		level.update();
 	}
 	
-	//graphic, buffer strategy
+	/**
+	 * Metoda aktualizuj¹ca odœwierzanie gry.
+	 */
 	public void render() {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {

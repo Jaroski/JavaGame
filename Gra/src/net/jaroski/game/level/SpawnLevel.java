@@ -10,13 +10,24 @@ import net.jaroski.game.entity.mob.Dummy;
 import net.jaroski.game.entity.mob.Shooter;
 import net.jaroski.game.entity.mob.Star;
 
-
+/**
+ * Klasa odpowiedzialna za wczytywanie mapy, oraz generowanie potworów na niej
+ * @author Jaroski
+ *
+ */
 public class SpawnLevel extends Level {
 	
+	/**
+	 * Konstruktor klasy generuj¹cej mapê
+	 * @param path Argument przekazuj¹cy œcie¿kê do pliku graficznego z którego bêdzie wczytana mapa
+	 */
 	public SpawnLevel(String path) {
 		super(path);
 	}
 	
+	/**
+	 * Metoda wczytuje tablice mapy z podanego pliku obrazowego
+	 */
 	protected void loadLevel(String path) {
 		try {
 			BufferedImage image = ImageIO.read(SpawnLevel.class.getResource(path));
@@ -30,15 +41,7 @@ public class SpawnLevel extends Level {
 			System.out.println("Exception! Could not load level file!");
 		}
 		
-		add(new Chaser(20, 55));
-		add(new Star(17, 35));
-		//add(new Shooter(20, 55));
-		add(new Dummy(20, 55));
-		add(new Shooter(20, 62));
-		for(int i=0;i<5;i++) {
-			add(new Dummy(20, 55));
-			
-		}
+		generateMobs();
 	}
 	
 	// spawn_grass = 0xff19FF00
@@ -48,7 +51,27 @@ public class SpawnLevel extends Level {
 	// spawn_water = 0xff0000FF
 	// spawn_point = 0xff19FFF7
 	
+	/**
+	 * Stara metoda s³u¿¹ca do rêcznego generowania mapy,
+	 * np. randomowego uzupe³niania tablicy mapy
+	 */
 	protected void generateLevel() {
 		
+	}
+	
+	/**
+	 * Metoda generuj¹ca Moby(potwory) na mapie
+	 */
+	
+	protected void generateMobs() {
+		add(new Chaser(20, 55));
+		add(new Star(17, 35));
+		//add(new Shooter(20, 55));
+		add(new Dummy(20, 55));
+		add(new Shooter(20, 62));
+		for(int i=0;i<5;i++) {
+			add(new Dummy(20, 55));
+			
+		}
 	}
 }

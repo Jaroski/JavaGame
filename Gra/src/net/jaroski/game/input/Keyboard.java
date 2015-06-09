@@ -3,11 +3,19 @@ package net.jaroski.game.input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * Klasa rejestruj¹ca wszelkie naciœniêcia przycisków na klawiaturze
+ * @author Jaroski
+ *
+ */
 public class Keyboard implements KeyListener{
 	
 	private boolean[] keys = new boolean[200];
 	public boolean up, down, left, right;
 	
+	/**
+	 * Aktualizacja zmiennej boolean dla oflagowanych przycisków
+	 */
 	public void update() {
 		up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
 		down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
@@ -23,18 +31,25 @@ public class Keyboard implements KeyListener{
 		}*/
 	}
 	
+	/**
+	 * Zmiana flagi dla naciœniêtego przycisku na TRUE
+	 */
 	public void keyPressed(KeyEvent e) {
 		keys[e.getKeyCode()] = true;
 		
 	}
 
-
+	/**
+	 * Zmiana flagi dla naciœniêtego przycisku na FALSE
+	 */
 	public void keyReleased(KeyEvent e) {
 		keys[e.getKeyCode()] = false;
 		
 	}
-
-
+	
+	/**
+	 * Metoda nie jest zaimplementowana
+	 */
 	public void keyTyped(KeyEvent e) {
 		
 		

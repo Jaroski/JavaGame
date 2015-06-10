@@ -8,6 +8,10 @@ import net.jaroski.game.entity.mob.Mob;
 import net.jaroski.game.entity.mob.Star;
 import net.jaroski.game.level.tile.Tile;
 
+/**
+ * Klasa odpowiedzialna za renderowanie na ekranie i wyswietlanie obiektów
+ *
+ */
 public class Screen {
 	
 	public int width, height;
@@ -30,6 +34,12 @@ public class Screen {
 		}
 	}
 	
+	/**
+	 * Render Tile na ekranie
+	 * @param xp xp
+	 * @param yp yp
+	 * @param tile Rodzaj rysowanego Tile
+	 */
 	public void renderTile(int xp, int yp, Tile tile) {
 		xp -= xOffset;
 		yp -= yOffset;
@@ -44,6 +54,13 @@ public class Screen {
 		}
 	}
 	
+	/**
+	 * Render Sheeta na ekranie
+	 * @param xp xp
+	 * @param yp yp
+	 * @param sheet sheet
+	 * @param fixed TRUE / FALSE
+	 */
 	public void renderSheet(int xp, int yp, SpriteSheet sheet, boolean fixed) {
 		if(fixed) {
 			xp -= xOffset;
@@ -60,6 +77,13 @@ public class Screen {
 		}
 	}
 	
+	/**
+	 * Render Sprite
+	 * @param xp xp
+	 * @param yp yp
+	 * @param sprite sprite
+	 * @param fixed TRUE / FALSE
+	 */
 	public void renderSprite(int xp, int yp, Sprite sprite, boolean fixed) {
 		if(fixed) {
 			xp -= xOffset;
@@ -76,6 +100,12 @@ public class Screen {
 		}
 	}
 	
+	/**
+	 * Render Projectile
+	 * @param xp xp
+	 * @param yp yp
+	 * @param p Projectile
+	 */
 	public void renderProjectile(int xp, int yp, Projectile p) {
 		xp -= xOffset;
 		yp -= yOffset;
@@ -92,6 +122,12 @@ public class Screen {
 		}
 	}
 	
+	/**
+	 * Render Moba
+	 * @param xp xp
+	 * @param yp yp
+	 * @param mob Rodzaj Moba
+	 */
 	public void renderMob(int xp, int yp, Mob mob) {
 		xp -= xOffset;
 		yp -= yOffset;
@@ -109,6 +145,12 @@ public class Screen {
 		}
 	}
 	
+	/**
+	 * Render Moba
+	 * @param xp xp
+	 * @param yp yp
+	 * @param sprite Sprite Moba
+	 */
 	public void renderMob(int xp, int yp, Sprite sprite) {
 		xp -= xOffset;
 		yp -= yOffset;
@@ -124,6 +166,11 @@ public class Screen {
 		}
 	}
 	
+	/**
+	 * Ustawia przesuniêcie
+	 * @param xOffset Przesuniêcie X
+	 * @param yOffset Przesuniêcie Y
+	 */
 	public void setOffset(int xOffset, int yOffset) {
 		this.xOffset = xOffset;
 		this.yOffset = yOffset;

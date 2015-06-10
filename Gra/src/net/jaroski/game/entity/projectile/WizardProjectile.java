@@ -11,12 +11,23 @@ import net.jaroski.game.entity.spawner.Spawner;
 import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 
-
+/**
+ * Klasa generuj¹ca WizardProjectile, czyli kulê ognia.
+ * @author Jaroski
+ *
+ */
 public class WizardProjectile extends Projectile{
 	public static final int FIRE_RATE = 10; // higher is slower
 	Entity owner;
 	List<Mob> targets = new ArrayList<Mob>();
 	
+	/**
+	 * Konstruktor WizardProjectile
+	 * @param x Parametr pocz¹tkowy osi X
+	 * @param y Parametr pocz¹tkowy osi Y
+	 * @param sv K¹t atan2 dla toru lotu
+	 * @param owner Entity które stworzy³o WizardProjectile
+	 */
 	public WizardProjectile(double x, double y, double sv, Entity owner) {
 		super(x, y, sv);
 		range = random.nextInt(100) + 150;
@@ -30,6 +41,9 @@ public class WizardProjectile extends Projectile{
 		
 	}
 	
+	/**
+	 * Aktualizacja logiki
+	 */
 	public void update() {
 		//if(level.tileCollision(x, y, nx, ny)) {
 		if(level.tileCollision((int)(x + nx), (int)(y + ny), 7, 3, 9)) {	
@@ -60,12 +74,19 @@ public class WizardProjectile extends Projectile{
 		else anim = 0;
 	}
 	
+	/**
+	 * Przesuniêcie WizardProjectile
+	 */
 	protected void move() {
 		x += nx;
 		y += ny;
 		if(distance() > range) remove();
 	}
 	
+	/**
+	 * Zwraca odleg³oœæ przebyt¹ przez WizardProjectile
+	 * @return Odleg³oœæ która WizardProjectile ju¿ przeszed³
+	 */
 	private double distance() {
 		double dist = 0;
 		dist = Math.sqrt(Math.abs((xOrigin - x)*(xOrigin-x) + (yOrigin - y) * (yOrigin - y)));
@@ -73,6 +94,9 @@ public class WizardProjectile extends Projectile{
 		return dist;
 	}
 	
+	/**
+	 * Render na ekranie
+	 */
 	public void render(Screen screen) {
 		if(anim % 30 < 10) {
 			sprite = Sprite.fireball1;

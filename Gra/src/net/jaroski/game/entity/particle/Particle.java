@@ -20,10 +20,10 @@ public class Particle extends Entity {
 	protected double xa, ya, za;
 	
 	/**
-	 * 
-	 * @param x
-	 * @param y
-	 * @param life
+	 * Konstruktor Particla
+	 * @param x Pocz¹tkowe miejsce X na osi X
+	 * @param y Pocz¹tkowe miejsce Y na osi Y
+	 * @param life Minimalny czas ¿ycia Particla
 	 */
 	public Particle(int x, int y, int life) {
 		this.x = x;
@@ -39,6 +39,9 @@ public class Particle extends Entity {
 		this.zz = random.nextFloat() + 2.0;
 	}
 	
+	/**
+	 * Aktualizacja logiki Particla
+	 */
 	public void update() {
 		life--;
 		if(life <= 0) remove();
@@ -56,6 +59,11 @@ public class Particle extends Entity {
 		
 	}
 	
+	/**
+	 * Poruszenie Particla
+	 * @param x kierunek na osi X
+	 * @param y kierunek na osi Y
+	 */
 	private void move(double x, double y) {
 		if(collision(x, y)) {
 			this.xa *= -0.5;
@@ -68,6 +76,12 @@ public class Particle extends Entity {
 		this.zz += za;
 	}
 	
+	/**
+	 * Obs³uga kolizji
+	 * @param x Koordynat na osi X
+	 * @param y Koordynat na osi Y
+	 * @return TRUE je¿eli kolizja wystêpuje, FALSE je¿eli brak kolizji
+	 */
 	public boolean collision(double x, double y) {
 		boolean solid = false;
 		for(int c=0; c<4;c++) {
@@ -83,6 +97,9 @@ public class Particle extends Entity {
 		return solid;
 	}
 	
+	/**
+	 * Render na mapie
+	 */
 	public void render(Screen screen) {
 		screen.renderSprite((int)xx, (int)yy - (int)zz, sprite, true);
 	}

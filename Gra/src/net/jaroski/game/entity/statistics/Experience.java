@@ -1,5 +1,10 @@
 package net.jaroski.game.entity.statistics;
 
+/**
+ * Brak implementacji, zabawa na przysz³oœæ
+ * @author Jaroski
+ *
+ */
 public class Experience {
 	
 	private int level;

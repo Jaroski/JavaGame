@@ -1,5 +1,10 @@
 package net.jaroski.game.graphics;
 
+/**
+ * Obs³uga Sprite'ow obiektów
+ * @author Jaroski
+ *
+ */
 public class Sprite {
 	   
 	public final int SIZE;
@@ -51,6 +56,12 @@ public class Sprite {
 	public static Sprite square = new Sprite(2, 0xFF0000);
 	public static Sprite dummy = new Sprite(32, 0, 0, SpriteSheet.dummy_down);
 	
+	/**
+	 * Wczytywanie Sprite'u
+	 * @param sheet SpriteSheet
+	 * @param width szerokoœæ SpriteSheetu
+	 * @param height wysokoœæ SpriteSheetu
+	 */
 	protected Sprite(SpriteSheet sheet, int width, int height) {
 		SIZE = (width == height) ? width : -1;
 		this.width = width;

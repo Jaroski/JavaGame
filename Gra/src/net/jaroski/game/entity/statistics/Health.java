@@ -1,5 +1,11 @@
 package net.jaroski.game.entity.statistics;
 
+
+/**
+ * Klasa odpowiedzialna za obs³ugê ¿ycia Mobów
+ * @author Jaroski
+ *
+ */
 public class Health {
 	private int maxHealth;
 	private int health;

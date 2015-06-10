@@ -191,7 +191,10 @@ public class Game extends Canvas implements Runnable {
 		
 	}
 	
-	public static void main(String[] args) {
+	/**
+	 * Inicjalizacja okna gry oraz jej rozpoczêcie
+	 */
+	public static void initGame() {
 		Game game = new Game();
 		game.frame.setResizable(false);
 		game.frame.setTitle(Game.title);
@@ -202,6 +205,10 @@ public class Game extends Canvas implements Runnable {
 		game.frame.setVisible(true);
 					
 		game.start();
+	}
+	
+	public static void main(String[] args) {
+		initGame();
 	}
 
 }

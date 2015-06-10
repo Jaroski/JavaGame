@@ -10,6 +10,11 @@ import net.jaroski.game.graphics.SpriteSheet;
 import net.jaroski.game.level.Node;
 import net.jaroski.game.util.Vector2i;
 
+/**
+ * Klasa definiuj¹ca Moba Star, który mo¿e œledziæ i znaleŸæ Gracza wykorzystuj¹c algorytm A* do znalezienia œcie¿ki.
+ * @author Jaroski
+ *
+ */
 public class Star extends Mob {
 
 	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.dummy_down, 32, 32, 3);
@@ -22,6 +27,11 @@ public class Star extends Mob {
 	private List<Node> path;
 	private int time = 0;
 	
+	/**
+	 * Inicjalizacja Moba na podanych koordynatach
+	 * @param x Koordynat osi X podany jako miejsce pixelowe na mapie
+	 * @param y Koordynat osi X podany jako miejsce pixelowe na mapie
+	 */
 	public Star(int x, int y) {
 		this.x = x<<4;
 		this.y = y<<4;
@@ -33,6 +43,10 @@ public class Star extends Mob {
 		hp = new Health(12);
 	}
 	
+	/**
+	 * Metoda specjalna Moba.
+	 * Obs³uguje œledzenie gracza algorytmem A*
+	 */
 	private void follow() {
 		xa=0;
 		ya=0;
@@ -61,6 +75,9 @@ public class Star extends Mob {
 		}
 	}
 	
+	/**
+	 * Aktualizacja logiki potwora.
+	 */
 	public void update() {
 		time++;
 		
@@ -85,8 +102,9 @@ public class Star extends Mob {
 		if(!hp.isAlive()) remove();
 	}
 	
-	
-	
+	/**
+	 * Renderowanie Moba na ekranie
+	 */
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();
 		screen.renderMob((int)(x - 16), (int)(y - 16), this);

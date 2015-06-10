@@ -8,6 +8,11 @@ import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.graphics.SpriteSheet;
 
+/**
+ * Klasa przedstawiaj¹ca Moba Chaser, jest to mob który goni gracza w sposób na si³e po prostej linii.
+ * @author Jaroski
+ *
+ */
 public class Chaser extends Mob{
 	
 	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.dummy_down, 32, 32, 3);
@@ -17,7 +22,11 @@ public class Chaser extends Mob{
 	
 	private AnimatedSprite animSprite = down;
 	
-	
+	/**
+	 * Inicjalizacja moba
+	 * @param x koordynat X moba na mapie, gdzie X jest miejscem pixelowym
+	 * @param y koordynat Y moba na mapie, gdzie Y jest miejscem pixelowym
+	 */
 	public Chaser(int x, int y) {
 		this.x = x<<4;
 		this.y = y<<4;
@@ -29,6 +38,10 @@ public class Chaser extends Mob{
 		hp = new Health(8);
 	}
 	
+	/**
+	 * Funkcja specjalna moba.
+	 * Daje mobowi mo¿liwoœæ œledzenia gracza.
+	 */
 	private void follow() {
 		xa=0;
 		ya=0;
@@ -54,6 +67,9 @@ public class Chaser extends Mob{
 		}
 	}
 	
+	/**
+	 * Aktualizacja logiki moba
+	 */
 	public void update() {
 		
 		
@@ -78,7 +94,9 @@ public class Chaser extends Mob{
 		if(!hp.isAlive()) remove();
 	}
 	
-	
+	/**
+	 * Render moba na ekranie
+	 */
 	
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();

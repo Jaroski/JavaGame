@@ -17,7 +17,11 @@ public class Dummy extends Mob{
 	
 	private int time = 0;
 	
-	
+	/**
+	 * Inicjalizacja moba
+	 * @param x koordynat X moba na mapie, gdzie X jest miejscem pixelowym
+	 * @param y koordynat Y moba na mapie, gdzie Y jest miejscem pixelowym
+	 */
 	public Dummy(int x, int y) {
 		this.x = x << 4;
 		this.y = y << 4;
@@ -29,6 +33,9 @@ public class Dummy extends Mob{
 		hp = new Health(5);
 	}
 	
+	/**
+	 * Aktualizacja logiki moba
+	 */
 	public void update() {
 		time++;
 		
@@ -69,6 +76,9 @@ public class Dummy extends Mob{
 		if(!hp.isAlive()) remove();
 	}
 	
+	/**
+	 * Render moba na ekranie
+	 */
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();
 		screen.renderMob((int)(x-16), (int)(y-16), sprite);

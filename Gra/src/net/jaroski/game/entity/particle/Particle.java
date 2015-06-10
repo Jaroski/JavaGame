@@ -4,6 +4,11 @@ import net.jaroski.game.entity.Entity;
 import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 
+/**
+ * Klasa obs³uguj¹ca Particle, czyli odbryzgi przy zde¿eniu siê WizardProjectile ze sta³ym obiektem kolizyjnym.
+ * @author Jaroski
+ *
+ */
 public class Particle extends Entity {
 	
 	private Sprite sprite;
@@ -14,6 +19,12 @@ public class Particle extends Entity {
 	protected double xx, yy, zz;
 	protected double xa, ya, za;
 	
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @param life
+	 */
 	public Particle(int x, int y, int life) {
 		this.x = x;
 		this.y = y;

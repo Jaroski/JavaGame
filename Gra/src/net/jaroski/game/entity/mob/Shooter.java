@@ -11,6 +11,11 @@ import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.graphics.SpriteSheet;
 import net.jaroski.game.util.Vector2i;
 
+/**
+ * Klasa przestawiaj¹ca Moba Shooter, który mo¿e strzelaæ w kierunku najbli¿szego NPC
+ * @author Jaroski
+ *
+ */
 public class Shooter extends Mob{
 	
 	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.dummy_down, 32, 32, 3);
@@ -23,6 +28,11 @@ public class Shooter extends Mob{
 	private double fire = 0;
 	private int time = 0;
 	
+	/**
+	 * Standardowa inicjalizacja Shooter'a na koordynatach podanych w argumentach
+	 * @param x Koordynat osi X podany jako miejsce pixelowe na mapie
+	 * @param y Koordynat osi X podany jako miejsce pixelowe na mapie
+	 */
 	public Shooter(int x, int y) {
 		this.x = x << 4;
 		this.y = y << 4;
@@ -36,6 +46,13 @@ public class Shooter extends Mob{
 		hp = new Health(3);
 	}
 	
+	/**
+	 * /**
+	 * Standardowa inicjalizacja Shooter'a na koordynatach podanych w argumentach
+	 * @param x Koordynat osi X podany jako miejsce pixelowe na mapie
+	 * @param y Koordynat osi X podany jako miejsce pixelowe na mapie
+	 * @param hp Definicja ile ¿ycia ma posiadaæ Shooter
+	 */
 	public Shooter(int x, int y, int hp) {
 		this.x = x << 4;
 		this.y = y << 4;
@@ -49,6 +66,9 @@ public class Shooter extends Mob{
 		this.hp = new Health(hp);
 	}
 	
+	/**
+	 * Aktualizacja logiki Shooter'a
+	 */
 	public void update() {
 		time++;
 		if (time % (random.nextInt(50)+20) == 0) {
@@ -88,11 +108,19 @@ public class Shooter extends Mob{
 		if(!hp.isAlive()) remove();
 	}
 	
+	/**
+	 * Render Moba na mapie
+	 */
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();
 		screen.renderMob((int)x -16, (int)y -16, this);
 	}
 	
+	/**
+	 * Metoda specjalna Moba.
+	 * Obs³uguje strzelanie potwora.
+	 * Mo¿e strzelaæ do wszystkich NPC oraz Gracza
+	 */
 	public void shooting() {
 		List<Entity> entities = level.getEntities(this, 50);
 		entities.add(level.getClientPlayer());

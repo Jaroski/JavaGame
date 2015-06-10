@@ -12,6 +12,11 @@ import net.jaroski.game.input.Keyboard;
 import net.jaroski.game.input.Mouse;
 import net.jaroski.game.level.Level;
 
+/**
+ * Klasa przedstawiaj¹ca gracza.
+ * @author Jaroski
+ *
+ */
 public class Player extends Mob {
 	
 	private Keyboard input;
@@ -30,6 +35,12 @@ public class Player extends Mob {
 		
 	}
 	
+	/**
+	 * Konstruktor Gracza
+	 * @param x Koordynat X na mapie
+	 * @param y Koordynat Y na mapie
+	 * @param input Przypisanie listenera klawiatury graczowi, aby móg³ siê poruszaæ
+	 */
 	public Player(int x, int y, Keyboard input) {
 		this.x = x;
 		this.y = y;
@@ -43,6 +54,9 @@ public class Player extends Mob {
 		hp = new Health(10);
 	}
 	
+	/**
+	 * Aktualizacja logiki gracza
+	 */
 	public void update() {
 		xa=0;
 		ya=0;
@@ -78,13 +92,19 @@ public class Player extends Mob {
 		//if(!hp.isAlive()) remove();
 	}
 	
+	/**
+	 * Metoda czyszcz¹ca strza³y z listy strza³ó, je¿eli przyjdzie na to pora
+	 */
 	private void clear() {
 		for (int i=0;i<level.getProjectiles().size();i++) {
 			Projectile p = level.getProjectiles().get(i);
 			if(p.isRemoved()) level.getProjectiles().remove(i);
 		}
 	}
-
+	
+	/**
+	 * Oddanie strza³u, je¿eli jest to mo¿liwe i wywo³ane
+	 */
 	private void updateShooting() {
 		if(Mouse.getButton() == 1 && fireRate <= 0) {
 			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
@@ -98,6 +118,9 @@ public class Player extends Mob {
 		}
 	}
 	
+	/**
+	 * Render gracza na mapie
+	 */
 	public void render(Screen screen) {
 		sprite = animSprite.getSprite();
 		screen.renderMob((int)(x-16), (int)(y-16), sprite);

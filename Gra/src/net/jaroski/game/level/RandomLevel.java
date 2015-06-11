@@ -2,6 +2,11 @@ package net.jaroski.game.level;
 
 import java.util.Random;
 
+/**
+ * Stara klasa s³u¿¹ca do generowania losowej mapy, zostawiona na wszelki wypadek dla ewentualnych testów
+ * @author Jaroski
+ *
+ */
 public class RandomLevel extends Level {
 	private static final Random random = new Random();
 	

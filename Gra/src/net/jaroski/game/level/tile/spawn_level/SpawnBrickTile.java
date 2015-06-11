@@ -4,6 +4,11 @@ import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.level.tile.Tile;
 
+/**
+ * Tile ceg³y
+ * @author Jaroski
+ *
+ */
 public class SpawnBrickTile extends Tile {
 
 	public SpawnBrickTile(Sprite sprite) {

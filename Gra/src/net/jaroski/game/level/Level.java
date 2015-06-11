@@ -14,6 +14,11 @@ import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.level.tile.Tile;
 import net.jaroski.game.util.Vector2i;
 
+/**
+ * Obs³uga poziomu (mapy) w grze
+ * @author Jaroski
+ *
+ */
 public class Level {
 	
 	
@@ -62,6 +67,9 @@ public class Level {
 		
 	}
 	
+	/**
+	 * Aktualizacja logiki
+	 */
 	public void update() {
 		for(int i=0; i<players.size(); i++) {
 			players.get(i).update();
@@ -81,6 +89,9 @@ public class Level {
 		remove();
 	}
 	
+	/**
+	 * Usuwanie zbêdnych obiektów
+	 */
 	private void remove() {
 		for(int i=0; i <entities.size(); i++) {
 			if (entities.get(i).isRemoved()) entities.remove(i);
@@ -100,6 +111,10 @@ public class Level {
 		
 	}
 	
+	/**
+	 * Zwraca listê Projectile
+	 * @return Zwraca listê Projectile
+	 */
 	public List<Projectile> getProjectiles() {
 		return projectiles;
 	}
@@ -108,6 +123,10 @@ public class Level {
 		
 	//}
 	
+	/**
+	 * Dodaje obiekt e do odpowiedniej listy
+	 * @param e Dodaje obiekt do odpowiedniej listy
+	 */
 	public void add(Entity e) {
 		e.init(this);
 		if(e instanceof Particle) {
@@ -135,11 +154,20 @@ public class Level {
 		return null;
 	}
 	
+	public static int getAmountOfMobs() {
+		return entities.size();
+	}
 	
 	public Player getClientPlayer() {
 		return players.get(0);
 	}
 	
+	/**
+	 * Algorytm A* wyszukuj¹cy najkrótsz¹ œcie¿kê do gracza dla potwora
+	 * @param start Wektor pocz¹tkowy poszukiwañ
+	 * @param goal Wektor koñcowy poszukiwañ
+	 * @return Zwraca ci¹g Vector'ów tworz¹cy trasê miêdzy punktami
+	 */
 	public List<Node> findPath(Vector2i start, Vector2i goal) {
 		List<Node> openList = new ArrayList<Node>();
 		List<Node> closedList = new ArrayList<Node>();
@@ -201,6 +229,12 @@ public class Level {
 		return false;
 	}
 	
+	/**
+	 * Zwraca odleg³oœæ miêdzy obiektami
+	 * @param tile A
+	 * @param goal B
+	 * @return Ogleg³oœæ miêdzy A a B
+	 */
 	private double getDistance(Vector2i tile, Vector2i goal) {
 		double dx = tile.getX() - goal.getX();
 		double dy = tile.getY() - goal.getY();
@@ -356,6 +390,13 @@ public class Level {
 	// Grass = 0xff007F0E
 	// Flower = 0xffE9FF00
 	// Rock = 0xff404040
+	
+	/**
+	 * Zwraca Tile który siê znajduje na podanych koordynatach
+	 * @param x Parametr X
+	 * @param y Parametr Y
+	 * @return Zwraca Tile na danych koordynatach
+	 */
 	public Tile getTile(int x, int y) {
 		
 		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;

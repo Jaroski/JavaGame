@@ -15,10 +15,10 @@ public class AnimatedSprite extends Sprite {
 	
 	/**
 	 * Konstruktor obs³ugi Animacji
-	 * @param sheet
-	 * @param width
-	 * @param height
-	 * @param length
+	 * @param sheet sheet
+	 * @param width szerokosc
+	 * @param height wysokosc
+	 * @param length dlugosc animacji
 	 */
 	
 	public AnimatedSprite(SpriteSheet sheet, int width, int height, int length) {

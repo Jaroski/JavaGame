@@ -4,6 +4,11 @@ import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.level.tile.Tile;
 
+/**
+ * Tile spawnu gracza
+ * @author Jaroski
+ *
+ */
 public class SpawnPointTile extends Tile {
 
 	public SpawnPointTile(Sprite sprite) {

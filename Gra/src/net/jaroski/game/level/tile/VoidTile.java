@@ -3,6 +3,11 @@ package net.jaroski.game.level.tile;
 import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 
+/**
+ * Tile je¿eli nie mamy podanego w danym miejscu Tile, a trzeba go narysowaæ
+ * @author Jaroski
+ *
+ */
 public class VoidTile extends Tile {
 
 	public VoidTile(Sprite sprite) {

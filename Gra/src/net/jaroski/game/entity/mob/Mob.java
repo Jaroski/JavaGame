@@ -79,7 +79,7 @@ public abstract class Mob extends Entity {
 	/**
 	 * Wartoœæ abs
 	 * @param value parametr
-	 * @return zwraca 1 dla wartoœci value >= 0, albo 1 dla value < 0
+	 * @return zwraca 1 dla wartoœci value wieksza rowna 0, albo 1 dla value mniejsza od 0
 	 */
 	private double abs(double value) {
 		if(value<0) return -1;

@@ -4,6 +4,11 @@ import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.level.tile.Tile;
 
+/**
+ * Tile kamienia
+ * @author Jaroski
+ *
+ */
 public class SpawnStoneTile extends Tile {
 
 	public SpawnStoneTile(Sprite sprite) {

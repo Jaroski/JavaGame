@@ -1,6 +1,7 @@
 package net.jaroski.game.entity.mob;
 
 import net.jaroski.game.Game;
+import net.jaroski.game.StartWindow;
 import net.jaroski.game.entity.Projectile;
 import net.jaroski.game.entity.projectile.WizardProjectile;
 import net.jaroski.game.entity.statistics.Health;
@@ -10,7 +11,6 @@ import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.graphics.SpriteSheet;
 import net.jaroski.game.input.Keyboard;
 import net.jaroski.game.input.Mouse;
-import net.jaroski.game.level.Level;
 
 /**
  * Klasa przedstawiaj¹ca gracza.
@@ -89,7 +89,12 @@ public class Player extends Mob {
 		} else {
 			walking = false;
 		}
-		//if(!hp.isAlive()) remove();
+		
+		if(!hp.isAlive()) {
+			remove();
+			StartWindow.endGame("lose");
+			
+		}
 	}
 	
 	/**

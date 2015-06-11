@@ -70,6 +70,13 @@ public class Sprite {
 		pixels = new int[width*height];
 	}
 	
+	/**
+	 * Wczytywanie Sprite'u
+	 * @param size rozmiar
+	 * @param x x
+	 * @param y y
+	 * @param sheet sheet
+	 */
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;
 		this.width = size;
@@ -81,6 +88,12 @@ public class Sprite {
 		load();
 	}
 	
+	/**
+	 * Wczytywanie Sprite'u
+	 * @param width szerokosc
+	 * @param height wysokosc
+	 * @param colour kolor
+	 */
 	public Sprite(int width, int height, int colour) {
 		SIZE = -1;
 		this.width = width;
@@ -89,6 +102,11 @@ public class Sprite {
 		setColour(colour);
 	}
 	
+	/**
+	 * Wczytywanie Sprite'u
+	 * @param size rozmiar
+	 * @param colour kolor
+	 */
 	public Sprite(int size, int colour) {
 		SIZE = size;
 		this.width = size;
@@ -96,27 +114,49 @@ public class Sprite {
 		pixels = new int[SIZE * SIZE];
 		setColour(colour);
 	}
+	
+	/**
+	 * Wczytywanie Sprite'u
+	 * @param pixels piksele
+	 * @param width szerokosc
+	 * @param height wysokosc
+	 */
 	public Sprite(int[] pixels, int width, int height) {
 		SIZE = (width == height) ? width : -1;
 		this.width = width;
 		this.height = height;
 		this.pixels = pixels;
 	}
-
+	
+	/**
+	 * Ustawia kolor pikseli
+	 * @param colour Numer koloru dla pikseli
+	 */
 	private void setColour(int colour) {
 		for(int i=0;i < width * height; i++) {
 			pixels[i] = colour;
 		}
 	}
 	
+	/**
+	 * Zwraca szerokoœæ Sprite'u
+	 * @return Zwraca szerokoœæ Sprite'u
+	 */
 	public int getWidth() {
 		return width;
 	}
 	
+	/**
+	 * Zwraca szerokoœæ Sprite'u
+	 * @return Zwraca szerokoœæ Sprite'u
+	 */
 	public int getHeight() {
 		return height;
 	}
-	   
+	
+	/**
+	 * Wczytuje sheet do Sprite'u
+	 */
 	private void load()  {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {

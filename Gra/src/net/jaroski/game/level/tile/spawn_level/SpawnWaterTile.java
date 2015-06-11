@@ -4,6 +4,11 @@ import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.level.tile.Tile;
 
+/**
+ * Tile wody
+ * @author Jaroski
+ *
+ */
 public class SpawnWaterTile extends Tile {
 
 	public SpawnWaterTile(Sprite sprite) {

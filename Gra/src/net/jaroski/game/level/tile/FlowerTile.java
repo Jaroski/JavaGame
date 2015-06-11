@@ -3,6 +3,11 @@ package net.jaroski.game.level.tile;
 import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 
+/**
+ * Aktualnie wycofane z implementacji
+ * @author Jaroski
+ *
+ */
 public class FlowerTile extends Tile {
 	
 	public FlowerTile(Sprite sprite) {

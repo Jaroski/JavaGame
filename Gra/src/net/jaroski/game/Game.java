@@ -35,7 +35,7 @@ public class Game extends Canvas implements Runnable {
 	public static String title = "Game (still not alpha)";
 	
 	private Thread thread;
-	private JFrame frame;
+	private static JFrame frame;
 	private Keyboard key;
 	private Level level;
 	private Player player;
@@ -46,6 +46,8 @@ public class Game extends Canvas implements Runnable {
 	
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
+	
+	
 	
 	/**
 	 * Konstruktor domyœlny dla klasy Game.
@@ -151,6 +153,12 @@ public class Game extends Canvas implements Runnable {
 	public void update() {
 		key.update();
 		level.update();
+		if(Level.getAmountOfMobs() <= 0) {
+			StartWindow.endGame("win");
+			
+			this.stop();
+		}
+		
 	}
 	
 	/**
@@ -191,14 +199,19 @@ public class Game extends Canvas implements Runnable {
 		
 	}
 	
+	public static JFrame getFrame() {
+		return frame;
+	}
+	
 	/**
 	 * Inicjalizacja okna gry oraz jej rozpoczêcie
 	 */
+	@SuppressWarnings("static-access")
 	public static void initGame() {
 		Game game = new Game();
 		game.frame.setResizable(false);
 		game.frame.setTitle(Game.title);
-		game.frame.add(game);
+		Game.frame.add(game);
 		game.frame.pack();
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.frame.setLocationRelativeTo(null);

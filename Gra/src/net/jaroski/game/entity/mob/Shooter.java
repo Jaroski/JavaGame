@@ -3,7 +3,6 @@ package net.jaroski.game.entity.mob;
 import java.util.List;
 
 import net.jaroski.game.entity.Entity;
-import net.jaroski.game.entity.projectile.WizardProjectile;
 import net.jaroski.game.entity.statistics.Health;
 import net.jaroski.game.graphics.AnimatedSprite;
 import net.jaroski.game.graphics.Screen;

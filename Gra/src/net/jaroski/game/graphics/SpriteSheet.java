@@ -5,6 +5,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * £adowanie SpriteSheet'ów
+ * @author Jaroski
+ *
+ */
 public class SpriteSheet {
 	
 	private String path;
@@ -31,6 +36,15 @@ public class SpriteSheet {
 	
 	protected Sprite[] sprites;
 	
+	/**
+	 * Wczytywanie SpriteSheet'ów
+	 * @param sheet sheet
+	 * @param x x
+	 * @param y y
+	 * @param width width
+	 * @param height height
+	 * @param spriteSize spriteSize
+	 */
 	public SpriteSheet(SpriteSheet sheet, int x, int y, int width, int height, int spriteSize) {
 		int xx = x * spriteSize;
 		int yy = y * spriteSize;
@@ -68,6 +82,11 @@ public class SpriteSheet {
 		
 	}
 	
+	/**
+	 * Wczytywanie SpriteSheet'ów
+	 * @param path path
+	 * @param size size
+	 */
 	public SpriteSheet(String path, int size) {
 		this.path = path;
 		SIZE = size;
@@ -77,6 +96,12 @@ public class SpriteSheet {
 		load();
 	}
 	
+	/**
+	 * Wczytywanie SpriteSheet'ów
+	 * @param path path
+	 * @param width width
+	 * @param height height
+	 */
 	public SpriteSheet(String path, int width, int height) {
 		this.path = path;
 		WIDTH = width;
@@ -86,10 +111,17 @@ public class SpriteSheet {
 		load();
 	}
 	
+	/**
+	 * Zwraca Sprite
+	 * @return Zwraca Sprite
+	 */
 	public Sprite[] getSprites() {
 		return sprites;
 	}
-
+	
+	/**
+	 * Wczytuje SpriteSheet do bufera obrazów
+	 */
 	private void load() {
 		try {
 			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));

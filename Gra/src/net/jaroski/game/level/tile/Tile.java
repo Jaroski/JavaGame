@@ -4,6 +4,11 @@ import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.level.tile.spawn_level.*;
 
+/**
+ * Podstawowa obs³uga Tile dla wszystkich tekstur w grze
+ * @author Jaroski
+ *
+ */
 public class Tile {
 	
 	
@@ -36,10 +41,20 @@ public class Tile {
 		this.sprite = sprite;
 	}
 	
+	/**
+	 * Render do przeci¹¿enia
+	 * @param x X
+	 * @param y Y
+	 * @param screen screen
+	 */
 	public void render(int x, int y, Screen screen) {
 		
 	}
 	
+	/**
+	 * Czy mo¿na chodziæ po Tile
+	 * @return FALSE je¿eli mo¿na chodziæ po Tile, TRUE je¿eli nie mo¿na
+	 */
 	//walkable
 	public boolean solid() {
 		return false;

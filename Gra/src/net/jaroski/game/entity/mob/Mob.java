@@ -112,7 +112,8 @@ public abstract class Mob extends Entity {
 	 * @return Zwraca TRUE je¿eli nie mo¿na wykonaæ ruchu, albo FALSE je¿eli mo¿na wykonaæ ruch
 	 */
 	public boolean collision(double xa, double ya) {
-		boolean solid = false;
+		//boolean solid = false;
+		boolean walkable = true;
 		for (int c=0;c<4;c++) { // c = corner, sprawdzamy wszystkie rogi na kolizje
 			double xt = ((x+xa) - c%2 * 16 +1) / 16;
 			double yt = ((y+ya) - c/2 * 16 -1) / 16;
@@ -120,9 +121,10 @@ public abstract class Mob extends Entity {
 			int iy = (int) Math.ceil(yt);
 			if(c % 2 == 0) ix = (int) Math.floor(xt);
 			if(c / 2 == 0) iy = (int) Math.floor(yt);
-			if(level.getTile(ix,iy+1).solid()) solid = true;
+			if(level.getTile(ix,iy+1).isWalkable()) walkable = false;
+			
 		}
-		return solid;
+		return walkable;
 		
 	}
 	

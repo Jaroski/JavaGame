@@ -19,6 +19,10 @@ public class SpawnBrickTile extends Tile {
 		screen.renderTile(x << 4, y << 4, this);
 	}
 	
+	public boolean isWalkable() {
+		return false;
+	}
+	
 	public boolean solid() {
 		return true;
 	}

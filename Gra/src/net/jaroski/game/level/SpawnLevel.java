@@ -64,13 +64,15 @@ public class SpawnLevel extends Level {
 	 */
 	
 	protected void generateMobs() {
-		add(new Chaser(20, 55));
+		add(new Chaser(20, 45));
 		add(new Star(17, 35));
-		//add(new Shooter(20, 55));
-		add(new Dummy(20, 55));
-		add(new Shooter(20, 62));
+		//add(new Shooter(20, 20));
+		add(new Dummy(20, 45));
+		//add(new Shooter(20, 62));
+		add(new Shooter(15, 30));
+		add(new Shooter(20, 10));
 		for(int i=0;i<5;i++) {
-			add(new Dummy(20, 55));
+			add(new Dummy(20, 35));
 			
 		}
 	}

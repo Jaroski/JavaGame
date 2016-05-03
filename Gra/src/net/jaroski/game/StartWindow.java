@@ -25,7 +25,7 @@ public class StartWindow extends JFrame implements ActionListener {
 	public StartWindow() {
 		frame = new JFrame();
 		panel = new JPanel();
-		frame.setSize(200, 250);
+		frame.setSize(200, 130);
 		frame.setTitle("");
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);

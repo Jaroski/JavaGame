@@ -52,14 +52,18 @@ public class Tile {
 	}
 	
 	/**
-	 * Czy mo¿na chodziæ po Tile
-	 * @return FALSE je¿eli mo¿na chodziæ po Tile, TRUE je¿eli nie mo¿na
+	 * Czy tile jest w formie przeszkody
+	 * @return FALSE je¿eli Tile nie jest przeszkoda, TRUE je¿eli jest
 	 */
 	//walkable
 	public boolean solid() {
 		return false;
 	}
 	
+	/**
+	 * Czy mo¿na chodziæ po Tile
+	 * @return FALSE je¿eli nie mo¿na chodziæ po Tile, TRUE jeœli mo¿na  
+	 */
 	public boolean isWalkable() {
 		return true;
 	}

@@ -90,11 +90,12 @@ public class Player extends Mob {
 			walking = false;
 		}
 		
-		if(!hp.isAlive()) {
+		// old project shit
+		/*if(!hp.isAlive()) {
 			remove();
 			StartWindow.endGame("lose");
 			
-		}
+		}*/
 	}
 	
 	/**

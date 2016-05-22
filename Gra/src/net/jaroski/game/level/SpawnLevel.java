@@ -68,7 +68,7 @@ public class SpawnLevel extends Level {
 		add(new Star(17, 35));
 		//add(new Shooter(20, 20));
 		add(new Dummy(20, 45));
-		//add(new Shooter(20, 62));
+		add(new Shooter(20, 63));
 		add(new Shooter(15, 30));
 		add(new Shooter(20, 10));
 		for(int i=0;i<5;i++) {

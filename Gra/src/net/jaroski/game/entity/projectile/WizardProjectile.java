@@ -63,7 +63,7 @@ public class WizardProjectile extends Projectile{
 			Entity colided = level.getEntityCollideMob(this, e);
 			if(colided != null) {
 				colided.hp.changeHealth(-1);
-				System.out.println(owner.name + "'s WizardProjectile dealt damage to entity: " + colided.name);
+				System.out.println(owner.name + "'s WizardProjectile dealt damage to entity: " + colided.name + " health: " + colided.hp.getHealth());
 				remove();
 				//System.out.println("shoot removed");
 			}

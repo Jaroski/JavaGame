@@ -26,7 +26,7 @@ public class StartWindow extends JFrame implements ActionListener {
 		frame = new JFrame();
 		panel = new JPanel();
 		frame.setSize(200, 130);
-		frame.setTitle("");
+		frame.setTitle("Projekt Indywidualny - Jaros³aw Wisniewski");
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

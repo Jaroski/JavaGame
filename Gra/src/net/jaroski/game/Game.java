@@ -41,6 +41,8 @@ public class Game extends Canvas implements Runnable {
 	private Player player;
 	private boolean running = false;
 	
+	private boolean pause = false;
+	
 	private Screen screen;
 	private Mouse mouse;
 	
@@ -144,6 +146,12 @@ public class Game extends Canvas implements Runnable {
 			}
 		}
 		stop();
+		
+	}
+	
+	public void pause(String s) {
+		pause = true;
+		StartWindow.showMessage(s);
 		
 	}
 	

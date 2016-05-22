@@ -96,6 +96,10 @@ public class StartWindow extends JFrame implements ActionListener {
 		Game.getFrame().dispose();
 	}
 	
+	public static void showMessage(String s) {
+		JOptionPane.showMessageDialog(frame, s);
+	}
+	
 	/**
 	 * Okno o grze i autorze
 	 */

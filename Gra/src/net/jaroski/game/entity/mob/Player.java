@@ -11,6 +11,7 @@ import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.graphics.SpriteSheet;
 import net.jaroski.game.input.Keyboard;
 import net.jaroski.game.input.Mouse;
+import net.jaroski.game.level.TileCoordinate;
 
 /**
  * Klasa przedstawiaj¹ca gracza.
@@ -54,6 +55,13 @@ public class Player extends Mob {
 		hp = new Health(10);
 	}
 	
+	public void respawn(int x, int y) {
+		TileCoordinate pSpawn = new TileCoordinate(x, y);
+		this.x = pSpawn.getX()+8;
+		this.y = pSpawn.getY();
+		hp = new Health(10);
+	}
+	
 	/**
 	 * Aktualizacja logiki gracza
 	 */
@@ -91,11 +99,12 @@ public class Player extends Mob {
 		}
 		
 		// old project shit
-		/*if(!hp.isAlive()) {
-			remove();
-			StartWindow.endGame("lose");
+		if(!hp.isAlive()) {
 			
-		}*/
+			StartWindow.showMessage("DUPA");
+			respawn(20, 62);
+			
+		}
 	}
 	
 	/**

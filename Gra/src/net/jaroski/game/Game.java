@@ -41,6 +41,8 @@ public class Game extends Canvas implements Runnable {
 	private Player player;
 	private boolean running = false;
 	
+	private boolean paused = false;
+	
 	private Screen screen;
 	private Mouse mouse;
 	
@@ -128,8 +130,7 @@ public class Game extends Canvas implements Runnable {
 			while(delta>=1) {
 				update();
 				updates++;
-				delta--;
-				
+				delta--;	
 			}
 			
 			render();
@@ -147,17 +148,36 @@ public class Game extends Canvas implements Runnable {
 		
 	}
 	
+	public boolean isPaused() {
+		return paused;
+	}
+	public void pause() {
+		if(paused) paused = false;
+		else paused = true;
+	}
+	
+	public void pause(String s) {
+		pause();
+		StartWindow.showMessage(s);
+		
+	}
+	
 	/**
 	 * Metoda aktualizuj¹ca logikê gry.
 	 */
 	public void update() {
 		key.update();
-		level.update();
-		//if(Level.getAmountOfMobs() <= 0) {
-		//	StartWindow.endGame("win");
-		//	this.stop();
-		//}
-		
+		if(!isPaused()) {
+			level.update();
+		}
+		// old project shit
+		/*if(Level.getAmountOfMobs() <= 0) {
+			StartWindow.endGame("win");
+			
+			this.stop();
+		}*/
+		//test
+		if(key.pause) pause();
 	}
 	
 	/**
@@ -208,7 +228,7 @@ public class Game extends Canvas implements Runnable {
 	@SuppressWarnings("static-access")
 	public static void initGame() {
 		Game game = new Game();
-		game.frame.setResizable(false);
+		game.frame.setResizable(true);
 		game.frame.setTitle(Game.title);
 		Game.frame.add(game);
 		game.frame.pack();

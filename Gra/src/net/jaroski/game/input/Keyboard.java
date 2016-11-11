@@ -12,6 +12,7 @@ public class Keyboard implements KeyListener{
 	
 	private boolean[] keys = new boolean[200];
 	public boolean up, down, left, right;
+	public boolean pause;
 	
 	/**
 	 * Aktualizacja zmiennej boolean dla oflagowanych przycisków
@@ -21,7 +22,7 @@ public class Keyboard implements KeyListener{
 		down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
 		left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
 		right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
-		
+		pause = keys[KeyEvent.VK_P];
 		/*
 		// console check
 		for(int i=0 ; i < keys.length; i++) {

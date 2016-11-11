@@ -55,16 +55,19 @@ public class Tile {
 	 * Czy tile jest w formie przeszkody
 	 * @return FALSE je¿eli Tile nie jest przeszkoda, TRUE je¿eli jest
 	 */
-	//walkable
 	public boolean solid() {
 		return false;
 	}
 	
 	/**
 	 * Czy mo¿na chodziæ po Tile
-	 * @return FALSE je¿eli nie mo¿na chodziæ po Tile, TRUE jeœli mo¿na  
+	 * @return FALSE je¿eli mozna chodzic po Tile, TRUE jeœli nie mozna  
 	 */
-	public boolean isWalkable() {
-		return true;
+	public boolean notWalkable() {
+		return false;
+	}
+	
+	public boolean isBreakable() {
+		return false;
 	}
 }

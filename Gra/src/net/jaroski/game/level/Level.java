@@ -201,12 +201,12 @@ public class Level {
 				Tile at = getTile(x+xi, y+yi);
 				//System.out.println("(" + (x+xi) + ", " + (y+yi) + ")");
 				if(at == null) continue;
-				if(at.solid()) continue;
+				if(at.notWalkable()) continue;
 				// jesli nie da sie przejsc na skos
 				if(xi!=0 && yi!=0) {
 					Tile c1 = getTile(x+xi, y);
 					Tile c2 = getTile(x, y+yi);
-					if(c1.solid() && c2.solid()) continue;
+					if(c1.notWalkable() && c2.notWalkable()) continue;
 				}
 				// 
 				Vector2i a = new Vector2i(x+xi, y+yi);

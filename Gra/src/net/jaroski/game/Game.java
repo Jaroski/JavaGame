@@ -32,7 +32,7 @@ public class Game extends Canvas implements Runnable {
 	private static int width = 300;
 	private static int height = width / 16 * 9;
 	private static int scale = 3;
-	public static String title = "Game (still not alpha)";
+	public static String title = "Game"; // (still not alpha)";
 	
 	private Thread thread;
 	private static JFrame frame;
@@ -153,11 +153,10 @@ public class Game extends Canvas implements Runnable {
 	public void update() {
 		key.update();
 		level.update();
-		if(Level.getAmountOfMobs() <= 0) {
-			StartWindow.endGame("win");
-			
-			this.stop();
-		}
+		//if(Level.getAmountOfMobs() <= 0) {
+		//	StartWindow.endGame("win");
+		//	this.stop();
+		//}
 		
 	}
 	

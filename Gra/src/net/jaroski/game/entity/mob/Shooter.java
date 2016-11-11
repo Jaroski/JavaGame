@@ -8,6 +8,7 @@ import net.jaroski.game.graphics.AnimatedSprite;
 import net.jaroski.game.graphics.Screen;
 import net.jaroski.game.graphics.Sprite;
 import net.jaroski.game.graphics.SpriteSheet;
+import net.jaroski.game.util.Debug;
 import net.jaroski.game.util.Vector2i;
 
 /**
@@ -111,6 +112,8 @@ public class Shooter extends Mob{
 	 * Render Moba na mapie
 	 */
 	public void render(Screen screen) {
+		Debug.drawRect(screen, 40, 40, 100, 40, 0xff00ff, false);
+		//screen.renderSprite(80, 80, new Sprite(80, 80, 0xFF0000), false);
 		sprite = animSprite.getSprite();
 		screen.renderMob((int)x -16, (int)y -16, this);
 	}
@@ -143,4 +146,17 @@ public class Shooter extends Mob{
 		this.fire=fireRate;
 	}
 	
+	/*private void shootRandom() {
+		List<Entity> entities = level.getEntities(this, 500);
+		entities.add(level.getClientPlayer());
+		if (time $ (30+random.nextInt(91)) == 0 ) {
+			
+		}
+		if(entities.size() > 0) {
+			double dx=rand.getX() -x;
+			double dy=rand.getY() -y;
+			double dir = Math.atan2(dy, dx);
+			shoot(x, y, dir);
+		}
+	}*/
 }
